@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#11151c">
+<meta name="description" content="PUBG Companion: حساسية، جيروسكوب، تخطيط أربعة أصابع ونصائح الأداء.">
+<link rel="manifest" href="manifest.webmanifest">
+<title>PUBG Companion</title>
+<style>
+:root{--bg:#0c1016;--panel:#171e28;--panel2:#202936;--text:#f4f6f8;--muted:#aab4c2;--gold:#f2c94c;--line:#303b4a;--green:#63d6a2;--red:#ff7c7c}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#202a37 0,#0c1016 55%);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;min-height:100vh}
+header{padding:22px 16px 14px;max-width:850px;margin:auto} .brand{display:flex;align-items:center;gap:12px}.logo{width:54px;height:54px;border-radius:16px;background:linear-gradient(145deg,#ffe27b,#c18a16);display:grid;place-items:center;color:#171717;font-weight:1000;font-size:22px;box-shadow:0 8px 25px #d8a52733}
+h1{font-size:22px;margin:0;letter-spacing:.5px} .sub{color:var(--muted);font-size:12px;margin-top:5px}
+main{max-width:850px;margin:auto;padding:0 14px 35px}.notice{background:#292315;border:1px solid #665122;color:#f5e4aa;padding:12px;border-radius:13px;font-size:12px;line-height:1.7;margin:12px 0}
+nav{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:14px 0 16px}.tab{background:var(--panel);border:1px solid var(--line);color:var(--muted);padding:11px 4px;border-radius:11px;font-size:12px;font-weight:700}.tab.active{background:var(--gold);color:#171717;border-color:var(--gold)}
+.panel{background:linear-gradient(145deg,#1b2430,#141a23);border:1px solid var(--line);border-radius:17px;padding:16px;margin-bottom:13px;box-shadow:0 8px 30px #0002}.panel h2{font-size:17px;margin:0 0 6px}.hint{color:var(--muted);font-size:12px;line-height:1.7;margin:0 0 13px}
+.row{display:flex;align-items:center;justify-content:space-between;gap:10px}.field{padding:12px 0;border-bottom:1px solid #2a3441}.field:last-child{border:0}.field label{font-size:13px;font-weight:650}.value{color:var(--gold);font-weight:800;min-width:36px;text-align:left;direction:ltr}input[type=range]{width:100%;accent-color:var(--gold);margin:12px 0 3px;direction:ltr}
+select,button,.textinput{font:inherit;border-radius:10px;border:1px solid var(--line);padding:10px;background:var(--panel2);color:var(--text)}select{max-width:100%}button{cursor:pointer;font-weight:700}.primary{background:var(--gold);color:#191919;border-color:var(--gold)}.secondary{background:#252f3d}.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}.actions button{flex:1;min-width:125px;font-size:12px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.stat{background:var(--panel2);border-radius:12px;padding:12px}.stat strong{display:block;font-size:19px;color:var(--gold)}.stat span{font-size:11px;color:var(--muted)}
+.check{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid #2a3441;font-size:13px;line-height:1.6}.check:last-child{border:0}.check input{accent-color:var(--gold);margin-top:4px;transform:scale(1.15)}
+.hidden{display:none!important}.tag{display:inline-block;background:#2b3542;color:#dce4ee;border-radius:99px;padding:4px 9px;font-size:11px}.tip{border-right:3px solid var(--gold);padding:8px 11px;margin:9px 0;background:#ffffff05;font-size:13px;line-height:1.7}.small{font-size:11px;color:var(--muted);line-height:1.7}footer{text-align:center;color:var(--muted);font-size:11px;padding:12px}
+.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#e7f8ef;color:#133c2a;padding:11px 16px;border-radius:12px;font-weight:700;font-size:13px;box-shadow:0 5px 25px #0005;display:none;z-index:10;max-width:90%;text-align:center}
+@media(min-width:650px){nav{grid-template-columns:repeat(4,1fr)}.settingsgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.settingsgrid .panel{margin-bottom:0}}
+</style>
+</head>
+<body>
+<header><div class="brand"><div class="logo">PC</div><div><h1>PUBG COMPANION</h1><div class="sub">SENSITIVITY · CONTROLS · PERFORMANCE</div></div></div></header>
+<main>
+<div class="notice">تطبيق مساعد مستقل لإدارة إعداداتك ونصائح اللعب. ليس تطبيقًا رسميًا من PUBG Mobile، ولا يغيّر ملفات اللعبة أو يضمن FPS معينًا.</div>
+<nav>
+<button class="tab active" data-tab="sens">🎯 الحساسية</button>
+<button class="tab" data-tab="controls">🎮 التحكم</button>
+<button class="tab" data-tab="performance">⚡ الأداء</button>
+<button class="tab" data-tab="backup">💾 الحفظ</button>
+</nav>
+
+<section id="sens" class="page">
+<div class="panel">
+<div class="row"><h2>ملف اللاعب</h2><span class="tag">4 أصابع · جيروسكوب</span></div>
+<p class="hint">عدّل القيم حسب راحتك. هذه قيم بداية قابلة للتخصيص وليست إعدادات مضمونة لكل لاعب.</p>
+<div class="row"><label for="profile">أسلوب اللعب</label><select id="profile"><option>متوازن</option><option>Rusher - هجومي</option><option>ثبات التصويب</option><option>قتال بعيد المدى</option></select></div>
+<div class="row" style="margin-top:13px"><label for="gyro">الجيروسكوب</label><select id="gyro"><option>Always On - دائمًا</option><option>Scope On - عند فتح السكوب</option><option>إيقاف</option></select></div>
+</div>
+<div class="settingsgrid">
+<div class="panel"><h2>Camera Sensitivity</h2><p class="hint">سرعة تحريك الكاميرا عند النظر دون إطلاق.</p><div id="camera"></div></div>
+<div class="panel"><h2>ADS Sensitivity</h2><p class="hint">سرعة السحب أثناء إطلاق النار.</p><div id="ads"></div></div>
+<div class="panel"><h2>Gyroscope</h2><p class="hint">تحكم بإمالة الهاتف أثناء التصويب.</p><div id="gyroSettings"></div></div>
+</div>
+<div class="actions"><button class="primary" id="saveBtn">حفظ الإعدادات</button><button class="secondary" id="resetBtn">إرجاع القيم المبدئية</button></div>
+</section>
+
+<section id="controls" class="page hidden">
+<div class="panel"><h2>تخطيط أربعة أصابع</h2><p class="hint">دليل مقترح يمكنك تطبيقه يدويًا من إعدادات التحكم داخل اللعبة.</p>
+<div class="grid">
+<div class="stat"><strong>الإبهام الأيسر</strong><span>الحركة + عصا الاتجاه</span></div>
+<div class="stat"><strong>الإبهام الأيمن</strong><span>الكاميرا + تحريك المنظور</span></div>
+<div class="stat"><strong>السبابة اليسرى</strong><span>زر إطلاق النار الأيسر</span></div>
+<div class="stat"><strong>السبابة اليمنى</strong><span>فتح السكوب / القفز / الانحناء</span></div>
+</div>
+<div class="tip">ابدأ بتكبير أزرار الحركة والإطلاق قليلًا، ثم عدّل مواضعها تدريجيًا في ساحة التدريب.</div>
+<div class="tip">لا تغيّر الحساسية وتخطيط الأزرار معًا في كل مرة؛ جرّب تعديلًا واحدًا لتعرف تأثيره.</div>
+<div class="tip">استخدم ساحة التدريب لمدة 10–15 دقيقة قبل اعتماد التخطيط في المباريات.</div>
+</div>
+<div class="panel"><h2>قائمة تجربة سريعة</h2>
+<label class="check"><input type="checkbox"> أستطيع التحرك والإطلاق في الوقت نفسه.</label>
+<label class="check"><input type="checkbox"> أستطيع فتح السكوب دون ترك عصا الحركة.</label>
+<label class="check"><input type="checkbox"> أستطيع القفز والانحناء أثناء الاشتباك.</label>
+<label class="check"><input type="checkbox"> الأزرار لا تحجب الهدف أو تسبب لمسات بالخطأ.</label>
+</div>
+</section>
+
+<section id="performance" class="page hidden">
+<div class="panel"><h2>دليل تحسين الأداء</h2><p class="hint">لا يمكن لصفحة HTML عادية قراءة FPS الخاص بلعبة أخرى أو فرض دعم 90/120 FPS.</p>
+<div class="grid"><div class="stat"><strong>60 Hz</strong><span>تحديث الشاشة لا يعني أن اللعبة تعمل دائمًا على 60 FPS.</span></div><div class="stat"><strong>90/120</strong><span>يعتمد على دعم الهاتف واللعبة والإصدار والإعدادات.</span></div></div>
+<div class="tip">من إعدادات الهاتف، اضبط معدل تحديث الشاشة على أعلى قيمة متاحة إذا كان الخيار موجودًا.</div>
+<div class="tip">من إعدادات PUBG، اختر معدل الإطارات الأعلى المتاح رسميًا مع جودة رسومية مناسبة.</div>
+<div class="tip">أغلق التطبيقات الثقيلة في الخلفية، واترك مساحة تخزين فارغة، وتجنب اللعب والهاتف شديد السخونة.</div>
+<div class="tip">إذا هبط الأداء بعد فترة، أوقف اللعب قليلًا حتى يبرد الهاتف. لا تستخدم ملفات مجهولة لتجاوز قيود اللعبة.</div>
+</div>
+<div class="panel"><h2>اختبار يدوي بعد كل تعديل</h2>
+<p class="hint">جرّب نفس السلاح والمنظار في ساحة التدريب، ثم قيّم الشعور بنفسك.</p>
+<label class="check"><input type="checkbox"> التصويب على هدف ثابت مريح.</label>
+<label class="check"><input type="checkbox"> الارتداد سهل التحكم نسبيًا.</label>
+<label class="check"><input type="checkbox"> لا يوجد تقطيع ملحوظ في التجربة.</label>
+<label class="check"><input type="checkbox"> درجة حرارة الهاتف مقبولة.</label>
+</div>
+</section>
+
+<section id="backup" class="page hidden">
+<div class="panel"><h2>حفظ ونسخ الإعدادات</h2><p class="hint">الحفظ محلي داخل المتصفح أو بيئة التطبيق. مسح بيانات التطبيق قد يحذف الإعدادات، لذلك احتفظ بنسخة احتياطية.</p>
+<div class="actions"><button class="primary" id="exportBtn">تصدير نسخة JSON</button><button class="secondary" id="importBtn">استيراد نسخة JSON</button><button class="secondary" id="copyBtn">نسخ ملخص الإعدادات</button></div>
+<input type="file" id="fileInput" accept=".json,application/json" class="hidden">
+<textarea id="summary" readonly style="margin-top:12px;width:100%;min-height:110px;background:#0e131a;color:#e9edf3;border:1px solid var(--line);border-radius:10px;padding:10px;font:12px monospace"></textarea>
+<div class="small">لا تضع كلمة مرورك أو بيانات حساب PUBG في ملفات النسخ الاحتياطي.</div>
+</div>
+<div class="panel"><h2>عن التطبيق</h2><p class="hint">PUBG Companion إصدار تجريبي مستقل. الاسم والشعارات الرسمية والعناصر المرئية الخاصة باللعبة مملوكة لأصحابها. هذا التطبيق غير تابع رسميًا لناشر PUBG Mobile.</p></div>
+</section>
+<footer>PUBG COMPANION · إعداداتك تحت سيطرتك</footer>
+</main>
+<div id="toast" class="toast"></div>
+<script>
+const defaults={
+ camera:[["TPP بدون سكوب",160],["FPP بدون سكوب",150],["Red Dot / Holo",140],["2x",125],["3x / Win94",105],["4x / VSS",85],["6x",60],["8x",45]],
+ ads:[["TPP بدون سكوب",140],["FPP بدون سكوب",130],["Red Dot / Holo",120],["2x",110],["3x / Win94",90],["4x / VSS",70],["6x",50],["8x",40]],
+ gyro:[["TPP بدون سكوب",200],["FPP بدون سكوب",190],["Red Dot / Holo",300],["2x",300],["3x / Win94",240],["4x / VSS",210],["6x",100],["8x",80]]
+};
+const storeKey="pubg-companion-v1";
+function makeSliders(id,arr,prefix){const root=document.getElementById(id);root.innerHTML="";arr.forEach((item,i)=>{const key=prefix+"_"+i;const wrap=document.createElement("div");wrap.className="field";wrap.innerHTML=`<div class="row"><label for="${key}">${item[0]}</label><span class="value" id="${key}_v">${item[1]}</span></div><input id="${key}" type="range" min="0" max="400" step="1" value="${item[1]}" aria-label="${item[0]}">`;root.appendChild(wrap);wrap.querySelector("input").addEventListener("input",e=>{document.getElementById(key+"_v").textContent=e.target.value;updateSummary()})})}
+makeSliders("camera",defaults.camera,"cam");makeSliders("ads",defaults.ads,"ads");makeSliders("gyroSettings",defaults.gyro,"gy");
+function getData(){const d={version:1,updatedAt:new Date().toISOString(),profile:document.getElementById("profile").value,gyroMode:document.getElementById("gyro").value,settings:{camera:[],ads:[],gyro:[]}};for(const [group,prefix] of [["camera","cam"],["ads","ads"],["gyro","gy"]]){defaults[group].forEach((it,i)=>d.settings[group].push({name:it[0],value:Number(document.getElementById(prefix+"_"+i).value)}))}return d}
+function applyData(d){if(!d||!d.settings)throw Error("الملف غير صالح");document.getElementById("profile").value=d.profile||"متوازن";document.getElementById("gyro").value=d.gyroMode||"Always On - دائمًا";for(const [group,prefix] of [["camera","cam"],["ads","ads"],["gyro","gy"]]){(d.settings[group]||[]).forEach((it,i)=>{const el=document.getElementById(prefix+"_"+i);if(el&&Number.isFinite(Number(it.value))){el.value=Math.max(0,Math.min(400,Number(it.value)));document.getElementById(prefix+"_"+i+"_v").textContent=el.value}})}updateSummary()}
+function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t.style.display="block";clearTimeout(window._toastTimer);window._toastTimer=setTimeout(()=>t.style.display="none",2300)}
+function updateSummary(){const d=getData();document.getElementById("summary").value=JSON.stringify(d,null,2)}
+function save(){localStorage.setItem(storeKey,JSON.stringify(getData()));updateSummary();toast("تم حفظ الإعدادات على هذا الجهاز")}
+document.getElementById("saveBtn").onclick=save;
+document.getElementById("resetBtn").onclick=()=>{applyData({settings:{camera:defaults.camera.map(x=>({value:x[1]})),ads:defaults.ads.map(x=>({value:x[1]})),gyro:defaults.gyro.map(x=>({value:x[1]}))},profile:"متوازن",gyroMode:"Always On - دائمًا"});toast("تمت إعادة القيم المبدئية")};
+document.getElementById("profile").onchange=updateSummary;document.getElementById("gyro").onchange=updateSummary;
+document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("active",x===b));document.querySelectorAll(".page").forEach(x=>x.classList.toggle("hidden",x.id!==b.dataset.tab));});
+document.getElementById("exportBtn").onclick=()=>{const blob=new Blob([JSON.stringify(getData(),null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="pubg-companion-settings.json";a.click();URL.revokeObjectURL(a.href);toast("بدأ تنزيل نسخة الإعدادات")};
+document.getElementById("importBtn").onclick=()=>document.getElementById("fileInput").click();
+document.getElementById("fileInput").onchange=async e=>{const f=e.target.files[0];if(!f)return;try{applyData(JSON.parse(await f.text()));save();toast("تم استيراد الإعدادات")}catch(err){toast("تعذّر قراءة الملف؛ تأكد أنه JSON صحيح")}e.target.value=""};
+document.getElementById("copyBtn").onclick=async()=>{updateSummary();try{await navigator.clipboard.writeText(document.getElementById("summary").value);toast("تم نسخ الملخص")}catch(e){document.getElementById("summary").select();toast("حدّد النص وانسخه يدويًا")}};
+try{const old=localStorage.getItem(storeKey);if(old)applyData(JSON.parse(old));else updateSummary()}catch(e){updateSummary()}
+if("serviceWorker" in navigator && location.protocol.startsWith("http")){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}))}
+</script>
+</body></html>
